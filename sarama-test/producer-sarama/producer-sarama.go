@@ -36,6 +36,7 @@ func main() {
 			fmt.Println("initProducer NewAsyncProducerFromClient error ", err.Error())
 			return
 		} else {
+			client.RefreshBrokers()
 			defer producer.Close()
 			go sendLoop(producer)
 			fmt.Println("initProducer success")
